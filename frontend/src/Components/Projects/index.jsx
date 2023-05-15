@@ -1,7 +1,7 @@
 import Card from "../Helpers/card/index";
 function Projects() {
   return (
-    <div className="w-full justyify-around flex flex-wrap gap-y-10 justify-around">
+    <div className="relative w-full justyify-around flex flex-wrap gap-y-10 justify-around">
     <div className="w-full flex p-10 space-x-5 justify-around">
       <Card title="To-do List" description="Gamify daily tasks to boost productivity using Golang." link="https://github.com/zhua633/go-to-do-list"/>
       <Card title="OpenAI Atari Games" description="Used TensorFlow to train OpenAI classic control and Atari games with machine learning models. Optimised the scoring and used AI to teach computer to play games!" link="https://github.com/zhua633/COMPSYS726-Reinforcement-Learning" />

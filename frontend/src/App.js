@@ -3,10 +3,11 @@ import Footer from "./Components/Footer/index";
 import Title from "./Components/Title";
 import Heading from "./Components/Heading";
 import Timeline from "./Components/Timeline";
-
+import Background from "./Components/Helpers/particles";
 function App() {
   return (
     <div>
+      <Background/>
       <Title/>
       <Heading text="Experiences"/>
       <Timeline/>
