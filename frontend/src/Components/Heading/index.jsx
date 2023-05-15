@@ -1,7 +1,7 @@
 function Title({text}) {
     return (
       <div class="relative w-full justify-center flex p-5">
-          <span class="mb-4 font-bold text-gray-900 dark:text-white lg:text-4xl underline underline-offset-3 decoration-8 decoration-blue-600 dark:decoration-blue-600">{text}</span>
+          <span class="mb-4 font-bold text-gray-900 dark:text-white lg:text-4xl underline underline-offset-3 decoration-8 decoration-indigo-500 dark:decoration-indigo-600">{text}</span>
       </div>
     )
     }
