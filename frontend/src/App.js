@@ -1,6 +1,6 @@
 import Projects from "./Components/Projects/index";
 import Footer from "./Components/Footer/index";
-import Title from "./Components/Title";
+import Title from "./Components/Helpers/Title";
 import Heading from "./Components/Heading";
 import Timeline from "./Components/Timeline";
 import Background from "./Components/Helpers/particles";

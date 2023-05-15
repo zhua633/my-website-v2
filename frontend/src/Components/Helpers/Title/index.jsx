@@ -1,4 +1,4 @@
-import LogoIcons from "../Helpers/Logos";
+import LogoIcons from "../Logos";
 function Title() {
   return (
     <div class="relative flex items-center justify-center h-screen">
