@@ -6,6 +6,7 @@ import Timeline from "./Components/Timeline";
 import Background from "./Components/Helpers/particles";
 import FadeinSection from "./Components/Helpers/FadeinSection";
 import Navbar from "./Components/Navbar";
+import './index.css'
 
 function App() {
   return (
@@ -26,7 +27,6 @@ function App() {
         </div>
       </FadeinSection>
       <Footer />
-      <Navbar />
     </div>
   );
 }
