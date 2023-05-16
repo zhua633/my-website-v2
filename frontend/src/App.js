@@ -5,11 +5,14 @@ import Heading from "./Components/Heading";
 import Timeline from "./Components/Timeline";
 import Background from "./Components/Helpers/particles";
 import FadeinSection from "./Components/Helpers/FadeinSection";
+import Navbar from "./Components/Navbar";
+
 function App() {
   return (
     <div>
       <Background />
-      <Title />
+      <Navbar />
+      <Title/>
       <FadeinSection>
         <div>
           <Heading text="Experiences" />
@@ -23,6 +26,7 @@ function App() {
         </div>
       </FadeinSection>
       <Footer />
+      <Navbar />
     </div>
   );
 }
