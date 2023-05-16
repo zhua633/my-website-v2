@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({title, description, link, imglink}) => {
   return (
-<div class="w-1/3 border border-gray-200 rounded-lg drop-shadow-xl dark:bg-gray-800 dark:border-gray-700 hover:bg-white">
+<div class="w-1/3 border bg-white border-gray-199 rounded-lg drop-shadow-xl dark:bg-gray-800 dark:border-gray-700">
     <div class="p-8 gap-y-5">
         <div class="flex items-center justify-start space-x-5 mb-6">
             <img class=" w-7 h-7" src={imglink} alt="" />

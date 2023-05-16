@@ -1,3 +1,6 @@
+
+import React from 'react';
+
 function Timeline() {
   return (
   <div class="w-full justify-center flex px-20 pb-20">
