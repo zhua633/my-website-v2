@@ -7,6 +7,7 @@ import Background from "./Components/Helpers/particles";
 import FadeinSection from "./Components/Helpers/FadeinSection";
 import Navbar from "./Components/Navbar";
 import './index.css'
+import Container from "./Components/Helpers/Container";
 
 function App() {
   return (
@@ -15,16 +16,20 @@ function App() {
       <Navbar />
       <Title/>
       <FadeinSection>
+        <Container>
         <div>
           <Heading text="Experiences" />
-          <Timeline />
+          <Timeline/>
         </div>
+        </Container>
       </FadeinSection>
       <FadeinSection>
+        <Container>
         <div>
           <Heading text="Projects" />
           <Projects />
         </div>
+        </Container>
       </FadeinSection>
       <Footer />
     </div>
