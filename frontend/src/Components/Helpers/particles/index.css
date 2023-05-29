@@ -4,14 +4,26 @@
     }
 }
 
+/* Define the CSS variables for light and dark mode */
+:root {
+    --background-color-light: #ffffff;
+    --background-color-dark:#111827;
+  }
+  
 .background {
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    background: #ffffff;
+    background: var(--background-color-light);
     overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+.background {
+    background-color:var(--background-color-dark)
+}
 }
 
 .background span {
