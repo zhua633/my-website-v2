@@ -1,5 +1,4 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import Timeline from "../Timeline/index";
 function Navbar() {
   return (
     <nav class="relative w-full z-20 top-0 left-0">
