@@ -6,13 +6,19 @@ Hey there! Welcome to my [personal website](https://zhua633.github.io/my-website
 
 ```
 cd frontend
-npm i
-npm start
+pnpm i
+pnpm start
+```
+
+### To deploy
+
+```
+cd frontend
+pnpm predeploy
+pnpm run deploy
 ```
 
 ### Credits!
 
 - Dynamic background CSS and HTML generator: https://wweb.dev/resources/animated-css-background-generator
-- Flowbite components: https://flowbite.com
 - Tailwind CSS library: https://tailwindcss.com
-- Mui React UI tools: https://mui.com/
