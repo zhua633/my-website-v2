@@ -2,8 +2,10 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 
 main {
-  position: absolute;
+  position: relative;
+  z-index: 1;
 }

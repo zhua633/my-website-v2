@@ -1,32 +1,90 @@
+import { useEffect, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+
+const navLinks = [
+  { href: "#Experiences", label: "Experiences" },
+  { href: "#Projects", label: "Projects" },
+];
+
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [inSection, setInSection] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 48);
+
+      const experiencesEl = document.getElementById("Experiences");
+      if (experiencesEl) {
+        const { top } = experiencesEl.getBoundingClientRect();
+        setInSection(top <= 120);
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!inSection) {
+      setCollapsed(false);
+    }
+  }, [inSection]);
+
+  const showGlass = scrolled || inSection;
+  const canCollapse = inSection;
+
   return (
-    <nav class="relative w-full z-20 top-0 left-0">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-normal mx-auto mt-6 ml-10">
+    <nav className="sticky top-0 z-20 w-full pt-6 pb-4">
+      <div className="ml-6 md:ml-10">
         <div
-          class="items-center justify-normal hidden h-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
+          className={`inline-flex h-10 items-center gap-1 rounded-full px-1.5 transition-all duration-500 ${
+            showGlass
+              ? "border border-white/20 bg-white/10 shadow-lg shadow-black/10 backdrop-blur-md"
+              : "border border-transparent bg-transparent"
+          }`}
         >
-          <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700">
-            <li>
-              <AnchorLink
-                href="#Experiences"
-                className="block py-2 pl-3 pr-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0 md:dark:hover:text-indigo-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                aria-current="page"
+          {canCollapse && (
+            <button
+              type="button"
+              onClick={() => setCollapsed((prev) => !prev)}
+              aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
+              aria-expanded={!collapsed}
+              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-gray-200 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <svg
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                Experiences
-              </AnchorLink>
-            </li>
-            <li>
+                {collapsed ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                )}
+              </svg>
+            </button>
+          )}
+
+          <div
+            className={`flex h-full items-center overflow-hidden transition-all duration-300 ease-out ${
+              collapsed ? "max-w-0 opacity-0" : "max-w-[240px] opacity-100"
+            }`}
+          >
+            {navLinks.map(({ href, label }) => (
               <AnchorLink
-                href="#Projects"
-                className="block py-2 pl-3 pr-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0 md:dark:hover:text-indigo-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                aria-current="page"
+                key={href}
+                href={href}
+                className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium leading-none text-gray-200 transition-colors hover:bg-white/10 hover:text-white"
               >
-                Projects
+                {label}
               </AnchorLink>
-            </li>
-          </ul>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
